@@ -1,12 +1,10 @@
-import { randU } from './randoom';
-
-const generateSequence = ({ seed, length }) => {
+const generateSequence = ({ seed, length, generatorFn }) => {
     const dots = [];
     let x, y, next = seed;
 
     for(let counter = length; counter > 0; counter--) {
-        ({ result: x, next } = randU(next));
-        ({ result: y, next } = randU(next));
+        ({ result: x, next } = generatorFn(next));
+        ({ result: y, next } = generatorFn(next));
 
         dots.push({ x, y });
     };
