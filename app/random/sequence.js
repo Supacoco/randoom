@@ -1,24 +1,17 @@
 import { randU } from './randoom';
 
-const generateSequence = (seed, length) => {
+const generateSequence = ({ seed, length }) => {
     const dots = [];
-    let tmpSeed = seed;
+    let x, y, next = seed;
 
     for(let counter = length; counter > 0; counter--) {
-        const x = randU(tmpSeed);
-        const y = randU(x.next);
+        ({ result: x, next } = randU(next));
+        ({ result: y, next } = randU(next));
 
-        dots.push({
-            x: x.result,
-            y: y.result
-        });
-
-        tmpSeed = y.next;
+        dots.push({ x, y });
     };
 
     return dots;
 };
 
 export { generateSequence };
-
-// recursiveness?
