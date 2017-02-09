@@ -11,7 +11,7 @@ const randMSWindows = (seed) => {
     const next = ((seed * 214013 + 2531011) / 65536) % 32768;
 
     return {
-        result: next / 32768,
+        result: next / 32767,
         next
     };
 };
