@@ -1,5 +1,5 @@
 class Context {
-    constructor(dotColor) {
+    constructor(dotColor = '#900C3F') {
         this.svg = document.createElementNS(
             'http://www.w3.org/2000/svg',
             'svg'

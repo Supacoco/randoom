@@ -7,14 +7,14 @@ import { generateSequence } from './random/sequence';
 import { Context } from './draw/context';
 
 const initUI = () => {
-    const context = new Context('red'),
-        contextMS = new Context('teal'),
-        contextHoole = new Context('gunmetal'),
+    const context = new Context(),
+        contextMS = new Context(),
+        contextHoole = new Context(),
         seed = 1,
         length = 5000;
 
     context.drawSequence(
-        generateSequence({ seed, length, generatorFn: randU })  
+        generateSequence({ seed, length, generatorFn: randU })
     );
 
     document.body.appendChild(context.svg);
