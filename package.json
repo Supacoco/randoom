@@ -16,7 +16,7 @@
     "collectCoverage": true,
     "collectCoverageFrom": ["app/**/*.js", "!app/index.js"]
   },
-  "author": "",
+  "author": "Nicolas Corral",
   "license": "ISC",
   "devDependencies": {
     "babel-jest": "^18.0.0",

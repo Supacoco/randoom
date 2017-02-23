@@ -1,35 +1,20 @@
-import { 
-    randU,
-    randMSWindows,
-    hooleCentralRandomizer
-} from './random/randoom';
-import { generateSequence } from './random/sequence';
 import { Context } from './draw/context';
+import { Randu } from './generators/randu';
+import { Windows } from './generators/windows';
+import { Hoole } from './generators/hoole';
+import { Xorshift } from './generators/xorshift';
 
 const initUI = () => {
-    const context = new Context(),
-        contextMS = new Context(),
-        contextHoole = new Context(),
-        seed = 1,
-        length = 5000;
+    const seed = 1,
+        length = 5000,
+        context = new Context('black'),
+        xorshift = new Xorshift(seed);
 
     context.drawSequence(
-        generateSequence({ seed, length, generatorFn: randU })
+        xorshift.generateSequence(length)
     );
 
     document.body.appendChild(context.svg);
-
-    contextMS.drawSequence(
-        generateSequence({ seed, length, generatorFn: randMSWindows })
-    );
-
-    document.body.appendChild(contextMS.svg);
-
-    contextHoole.drawSequence(
-        generateSequence({ seed, length, generatorFn: hooleCentralRandomizer })
-    );
-
-    document.body.appendChild(contextHoole.svg);
 };
 
 initUI();
