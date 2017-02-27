@@ -24,13 +24,10 @@ describe('Context class test suite', () => {
 
     test('drawing a sequence', () => {
         const context = new Context(),
-            dots = [
-                { x: 12, y: 42 },
-                { x: 42, y: 12 }
-            ];
+            sequence = [12, 42, 1337, 3.14];
         
-        context.drawSequence(dots);
+        context.drawSequence(sequence);
 
-        expect(context.svg.children.length).toEqual(dots.length);
+        expect(context.svg.children.length).toEqual(sequence.length / 2);
     });
 });

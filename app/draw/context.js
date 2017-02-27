@@ -13,7 +13,6 @@ class Context {
     }
 
     drawDot(x, y) {
-        console.log('draw dot: [x=%s, y=%s]', x, y);
         const dot = document.createElementNS(
             'http://www.w3.org/2000/svg',
             'ellipse'

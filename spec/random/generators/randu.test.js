@@ -33,7 +33,7 @@ describe('Randu test suite', () => {
     });
 
     describe('Randu::generateSequence', () => {
-        test('generate sequence should return an array of coords', () => {
+        test('generate sequence should return an array of generated values', () => {
             const seed = 1337,
                 sequenceLength = 12,
                 randu = new Randu(1337);
@@ -44,9 +44,9 @@ describe('Randu test suite', () => {
                 .generateSequence(sequenceLength);
 
             expect(sequence).toBeDefined();
-            expect(sequence.length).toEqual(sequenceLength); 
+            expect(sequence.length).toEqual(sequenceLength);
             expect(randu.generate.mock.calls.length)
-                .toEqual(sequenceLength * 2);
+                .toEqual(sequenceLength);
         });
     });
 });
