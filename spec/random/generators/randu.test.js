@@ -29,7 +29,15 @@ describe('Randu test suite', () => {
             expect(result).toBeDefined();
             expect(result).toBeGreaterThan(0);
             expect(result).toBeLessThan(1);
-        })
+        });
+
+        test('randu implementation', () => {
+            const seed = 1337,
+                randu = new Randu(seed),
+                result = randu.generate();
+            
+            expect(result).toEqual(0.04080386972054839);
+        });
     });
 
     describe('Randu::generateSequence', () => {
