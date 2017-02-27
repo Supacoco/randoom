@@ -11,10 +11,7 @@ class AbstractGenerator {
         const dots = [];
 
         for (let counter = length; counter > 0; counter--) {
-            dots.push({ 
-                x: this.generate(),
-                y: this.generate()
-            });
+            dots.push(this.generate());
         }
 
         return dots;

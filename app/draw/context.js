@@ -13,6 +13,7 @@ class Context {
     }
 
     drawDot(x, y) {
+        console.log('draw dot: [x=%s, y=%s]', x, y);
         const dot = document.createElementNS(
             'http://www.w3.org/2000/svg',
             'ellipse'
@@ -28,12 +29,16 @@ class Context {
     }
 
     drawSequence(dots) {
-        for (const dot of dots) {
-            this.drawDot(
-                dot.x,
-                dot.y
-            );
+        if (dots.length % 2) {
+            throw new Error('Context::drawSequence - Sequence length is not even.');
         }
+
+        for(let index = 0; index < dots.length; index++) {
+            this.drawDot(
+                dots[index],
+                dots[++index]
+            );
+        } 
     }
 };
 

@@ -10,6 +10,8 @@ module.exports = {
 
     devServer: {},
 
+    devtool: 'source-map',
+
     plugins: [
         new HtmlWebpackPlugin()
     ]
