@@ -1,6 +1,3 @@
-image: mhart/alpine-node:6.10.0
-
-
 test:
     script:
         - npm i
@@ -8,3 +5,17 @@ test:
     artifacts:
         paths:
             - coverage
+    except:
+      - master
+
+build:
+    script:
+        - npm i
+        - npm test
+        - npm run build
+    artifacts:
+        paths:
+            - coverage
+            - dist
+    only:
+       - master
