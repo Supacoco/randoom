@@ -1,6 +1,11 @@
 image: mhart/alpine-node:6.10.0
 
+stages:
+    - test
+    - build
+
 test:
+    stage: test
     script:
         - npm i
         - npm test
@@ -11,6 +16,7 @@ test:
       - master
 
 build:
+    stage: build
     script:
         - npm i
         - npm test
