@@ -16,6 +16,7 @@ test:
 build:
     stage: build
     script:
+        - npm i
         - npm run build
     artifacts:
         paths:
