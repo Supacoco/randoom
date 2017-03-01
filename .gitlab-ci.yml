@@ -5,6 +5,7 @@ stages:
     - build
 
 test:
+    stage: test
     script:
         - npm i
         - npm test
@@ -13,10 +14,9 @@ test:
             - coverage
 
 build:
+    stage: build
     script:
         - npm run build
     artifacts:
         paths:
             - dist
-    only:
-       - master
