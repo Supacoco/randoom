@@ -7,7 +7,7 @@ class Context {
 
         this.svg.setAttribute('width', 500);
         this.svg.setAttribute('height', 500);
-        this.svg.setAttribute('viewBox', '0 0 1 1');
+        this.svg.setAttribute('viewBox', '0 0 6 6');
 
         this.dotColor = dotColor;
     }
@@ -18,10 +18,10 @@ class Context {
             'ellipse'
         );
 
-        dot.setAttributeNS(null, 'cx', x);
-        dot.setAttributeNS(null, 'cy', y);
-        dot.setAttributeNS(null, 'rx', 0.001);
-        dot.setAttributeNS(null, 'ry', 0.001);
+        dot.setAttribute('cx', x+3);
+        dot.setAttributeNS(null, 'cy', y+3);
+        dot.setAttributeNS(null, 'rx', 0.006);
+        dot.setAttributeNS(null, 'ry', 0.006);
         dot.setAttributeNS(null, 'fill', this.dotColor);
 
         this.svg.appendChild(dot);
