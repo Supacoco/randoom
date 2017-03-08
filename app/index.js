@@ -7,7 +7,7 @@ import { Xorshift } from './generators/xorshift';
 const initUI = () => {
     const seed = 1,
         length = 20000,
-        context = new Context('black'),
+        context = new Context('black', true),
         contextBis = new Context('black'),
         xorshift = new Xorshift(seed),
         xorshiftBis = new Xorshift(seed);

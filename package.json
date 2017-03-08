@@ -6,8 +6,8 @@
   "scripts": {
     "tdd": "jest --watch",
     "test": "jest",
-    "build": "webpack",
-    "start": "webpack && webpack-dev-server --open"
+    "build": "webpack --colors",
+    "start": "webpack-dev-server --open --colors"
   },
   "jest": {
     "transform": {

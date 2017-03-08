@@ -25,7 +25,7 @@ class AbstractGenerator {
             do {
                 x = 2 * this.generate() - 1;
                 y = 2 * this.generate() - 1;
-                r = x ** 2 + y ** 2;
+                r = x * x + y * y;
             } while (r >= 1 || r === 0);
 
             dots.push(

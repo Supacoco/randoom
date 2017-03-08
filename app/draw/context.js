@@ -1,15 +1,29 @@
 class Context {
-    constructor(dotColor = '#900C3F') {
+    constructor(dotColor = '#900C3F', gaussianMode = false) {
         this.svg = document.createElementNS(
             'http://www.w3.org/2000/svg',
             'svg'
         );
 
-        this.svg.setAttribute('width', 500);
-        this.svg.setAttribute('height', 500);
-        this.svg.setAttribute('viewBox', '0 0 6 6');
-
+        this.gaussianMode = gaussianMode;
         this.dotColor = dotColor;
+        this.setup();
+    }
+
+    setup() {
+        this.width = 500;
+        this.height = 500;
+        this.viewBox = '0 0 1 1';
+        this.dotSize = 0.001;
+
+        if (this.gaussianMode) {
+            this.viewBox = '0 0 6 6';
+            this.dotSize = 0.006;
+        }
+
+        this.svg.setAttribute('width', this.width);
+        this.svg.setAttribute('height', this.height);
+        this.svg.setAttribute('viewBox', this.viewBox);
     }
 
     drawDot(x, y) {
@@ -18,11 +32,16 @@ class Context {
             'ellipse'
         );
 
-        dot.setAttribute('cx', x+3);
-        dot.setAttributeNS(null, 'cy', y+3);
-        dot.setAttributeNS(null, 'rx', 0.006);
-        dot.setAttributeNS(null, 'ry', 0.006);
-        dot.setAttributeNS(null, 'fill', this.dotColor);
+        if (this.gaussianMode) {
+            x += 3;
+            y += 3;
+        }
+
+        dot.setAttribute('cx', x);
+        dot.setAttribute('cy', y);
+        dot.setAttribute('rx', this.dotSize);
+        dot.setAttribute('ry', this.dotSize);
+        dot.setAttribute('fill', this.dotColor);
 
         this.svg.appendChild(dot);
     }
