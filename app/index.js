@@ -1,4 +1,5 @@
-import { Context } from './draw/context';
+import { LinearContext } from './draw/linearContext';
+import { NormalContext } from './draw/normalContext';
 import { Randu } from './generators/randu';
 import { Windows } from './generators/windows';
 import { Hoole } from './generators/hoole';
@@ -7,23 +8,21 @@ import { Xorshift } from './generators/xorshift';
 const initUI = () => {
     const seed = 1,
         length = 20000,
-        context = new Context('black', true),
-        contextBis = new Context('black'),
+        linearContext = new LinearContext('black', true),
+        normalContext = new NormalContext('black'),
         xorshift = new Xorshift(seed),
         xorshiftBis = new Xorshift(seed);
 
-    context.drawSequence(
+    normalContext.drawSequence(
         xorshift.generateNormalSequence(length)
     );
 
-    document.body.appendChild(context.svg);
-
-    contextBis.drawSequence(
+    linearContext.drawSequence(
         xorshiftBis.generateSequence(length)
     );
 
-    document.body.appendChild(contextBis.svg);
-
+    document.body.appendChild(normalContext.svg);
+    document.body.appendChild(linearContext.svg);
 };
 
 initUI();

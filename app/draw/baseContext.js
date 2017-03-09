@@ -1,11 +1,11 @@
-class Context {
-    constructor(dotColor = '#900C3F', gaussianMode = false) {
+class BaseContext {
+    
+    constructor(dotColor = '#900C3F') {
         this.svg = document.createElementNS(
             'http://www.w3.org/2000/svg',
             'svg'
         );
 
-        this.gaussianMode = gaussianMode;
         this.dotColor = dotColor;
         this.setup();
     }
@@ -13,17 +13,9 @@ class Context {
     setup() {
         this.width = 500;
         this.height = 500;
-        this.viewBox = '0 0 1 1';
-        this.dotSize = 0.001;
-
-        if (this.gaussianMode) {
-            this.viewBox = '0 0 6 6';
-            this.dotSize = 0.006;
-        }
 
         this.svg.setAttribute('width', this.width);
         this.svg.setAttribute('height', this.height);
-        this.svg.setAttribute('viewBox', this.viewBox);
     }
 
     drawDot(x, y) {
@@ -31,11 +23,6 @@ class Context {
             'http://www.w3.org/2000/svg',
             'ellipse'
         );
-
-        if (this.gaussianMode) {
-            x += 3;
-            y += 3;
-        }
 
         dot.setAttribute('cx', x);
         dot.setAttribute('cy', y);
@@ -58,6 +45,8 @@ class Context {
             );
         } 
     }
-};
+}
 
-export { Context };
+export {
+    BaseContext
+}
