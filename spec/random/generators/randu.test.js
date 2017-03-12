@@ -57,4 +57,18 @@ describe('Randu test suite', () => {
                 .toEqual(sequenceLength);
         });
     });
+
+    describe('Randu::generateNormalSequence', () => {
+        test('generate normal sequence should return an array of generated values', () => {
+            const seed = 1337,
+                sequenceLength = 12,
+                randu = new Randu(1337);
+
+            const sequence = randu
+                .generateNormalSequence(sequenceLength);
+
+            expect(sequence).toBeDefined();
+            expect(sequence.length).toEqual(sequenceLength);
+        });
+    });
 });

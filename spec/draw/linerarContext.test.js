@@ -1,17 +1,18 @@
-import { Context } from '../../app/draw/context';
+import { LinearContext } from '../../app/draw/linearContext';
 
-describe('Context class test suite', () => {
+describe('LinearContext class test suite', () => {
     test('basic case', () => {
-        const context = new Context();
+        const context = new LinearContext();
         
         expect(context).toBeDefined();
         expect(context.svg).toBeDefined();
-        expect(context.svg.getAttribute('viewBox')).toBeDefined();
+        expect(context.svg.getAttribute('viewBox')).toEqual('0 0 1 1');
+        expect(context.dotSize).toEqual(0.001);
     });
 
-    describe('Context::drawDot', () => {
+    describe('LinearContext::drawDot', () => {
         test('drawing a dot', () => {
-            const context = new Context(),
+            const context = new LinearContext(),
                 x = 12,
                 y = 42;
             
@@ -24,9 +25,9 @@ describe('Context class test suite', () => {
         });
     });
 
-    describe('Context::drawSequence', () => {
+    describe('LinearContext::drawSequence', () => {
         test('drawing a sequence', () => {
-            const context = new Context(),
+            const context = new LinearContext(),
                 sequence = [12, 42, 1337, 3.14];
             
             context.drawSequence(sequence);
@@ -35,7 +36,7 @@ describe('Context class test suite', () => {
         });
 
         test('drawing an odd numbered sequence should throw an error', () => {
-            const context = new Context(),
+            const context = new LinearContext(),
                 sequence = [12, 42, 1337];
             
             expect(() => {
