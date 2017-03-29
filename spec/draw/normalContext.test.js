@@ -1,4 +1,4 @@
-import { NormalContext } from '../../app/draw/normalContext';
+import { NormalContext } from '../../src/draw/normalContext';
 
 describe('NormalContext class test suite', () => {
     test('basic case', () => {

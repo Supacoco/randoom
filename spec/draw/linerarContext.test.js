@@ -1,4 +1,4 @@
-import { LinearContext } from '../../app/draw/linearContext';
+import { LinearContext } from '../../src/draw/linearContext';
 
 describe('LinearContext class test suite', () => {
     test('basic case', () => {
