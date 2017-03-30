@@ -1,8 +1,6 @@
-import { AbstractGenerator } from './abstractGenerator';
-
-class Hoole extends AbstractGenerator {
+class Hoole {
     constructor(seed) {
-        super(seed);
+        this.seed = seed;
     }
 
     generate() {

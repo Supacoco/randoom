@@ -1,8 +1,6 @@
-import { AbstractGenerator } from './abstractGenerator';
-
-class Windows extends AbstractGenerator {
+class Windows {
     constructor(seed) {
-        super(seed);
+        this.seed = seed;
     }
 
     generate() {

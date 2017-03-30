@@ -1,6 +1,7 @@
 import { LinearContext } from './draw/linearContext';
 import { NormalContext } from './draw/normalContext';
 import { Xorshift } from './generators/xorshift';
+import { Sequence } from './sequence/sequence';
 
 import './styles/main.scss';
 
@@ -20,18 +21,15 @@ const testXorShift = () => {
         xorshiftBis = new Xorshift(seed);
 
     normalContext.drawSequence(
-        xorshift.generateNormalSequence(length)
+        Sequence.generateNormalSequence(length, xorshift)
     );
 
     linearContext.drawSequence(
-        xorshiftBis.generateSequence(length)
+        Sequence.generateSequence(length, xorshiftBis)
     );
-
-    const test = linearContext.svg.cloneNode(true);
 
     document.querySelector('#root').appendChild(normalContext.svg);
     document.querySelector('#root').appendChild(linearContext.svg);
-    document.querySelector('#root').appendChild(test);
 };
 
 bootstrap();

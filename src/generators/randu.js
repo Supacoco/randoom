@@ -1,8 +1,6 @@
-import { AbstractGenerator } from './abstractGenerator';
-
-class Randu extends AbstractGenerator {
+class Randu {
     constructor(seed) {
-        super(seed);
+        this.seed = seed;
     }
 
     generate() {

@@ -1,8 +1,6 @@
-import { AbstractGenerator } from './abstractGenerator';
-
-class CLib extends AbstractGenerator {
+class CLib {
     constructor(seed) {
-        super(seed);
+        this.seed = seed;
     }
 
     generate() {

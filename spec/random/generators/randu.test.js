@@ -39,36 +39,4 @@ describe('Randu test suite', () => {
             expect(result).toEqual(0.04080386972054839);
         });
     });
-
-    describe('Randu::generateSequence', () => {
-        test('generate sequence should return an array of generated values', () => {
-            const seed = 1337,
-                sequenceLength = 12,
-                randu = new Randu(1337);
-
-            randu.generate = jest.fn();
-        
-            const sequence = randu
-                .generateSequence(sequenceLength);
-
-            expect(sequence).toBeDefined();
-            expect(sequence.length).toEqual(sequenceLength);
-            expect(randu.generate.mock.calls.length)
-                .toEqual(sequenceLength);
-        });
-    });
-
-    describe('Randu::generateNormalSequence', () => {
-        test('generate normal sequence should return an array of generated values', () => {
-            const seed = 1337,
-                sequenceLength = 12,
-                randu = new Randu(1337);
-
-            const sequence = randu
-                .generateNormalSequence(sequenceLength);
-
-            expect(sequence).toBeDefined();
-            expect(sequence.length).toEqual(sequenceLength);
-        });
-    });
 });

@@ -1,12 +1,10 @@
-import { AbstractGenerator } from './abstractGenerator';
-
-class Xorshift extends AbstractGenerator {
+class Xorshift  {
     constructor(seed) {
-        super(seed);
-
         this.x = 123456789;
         this.y = 362436069;
         this.z = 521288629;
+
+        this.seed = seed;
     }
 
     generate() {
