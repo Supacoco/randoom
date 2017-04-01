@@ -1,22 +1,18 @@
 import { BaseContext } from './baseContext';
 
-class NormalContext extends BaseContext {
+const NormalContext = () => {
+    const baseContext = new BaseContext('0 0 6 6', 0.006);
 
-    setup() {
-        super.setup();
-        
-        this.viewBox = '0 0 6 6';
-        this.dotSize = 0.006;
-
-        this.svg.setAttribute('viewBox', this.viewBox);
-    }
-
-    drawDot(x, y) {
-        super.drawDot(
-            x + 3,
-            y + 3
-        );
-    }
+    return new Proxy(baseContext, {
+        get: (target, prop, receiver) => {
+            if (prop === 'drawDot') {
+                return function(x, y) {
+                    return target[prop].apply(target, [x + 3, y + 3]);
+                }
+            }
+            return Reflect.get(target, prop, receiver);
+        }
+    });
 }
 
 export {
