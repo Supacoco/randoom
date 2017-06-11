@@ -6,6 +6,7 @@
   "module": "dist/bundle.es.js",
   "js:next": "dist/bundle.es.js",
   "scripts": {
+    "preversion": "npm test",
     "tdd": "jest --watch --colors",
     "test": "jest --colors",
     "build": "./node_modules/.bin/rollup -c",
