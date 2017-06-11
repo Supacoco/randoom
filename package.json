@@ -7,6 +7,8 @@
   "js:next": "dist/bundle.es.js",
   "scripts": {
     "preversion": "npm test",
+    "version": "npm run build && git add -A dist",
+    "postversion": "git push && git push --follow-tags",
     "tdd": "jest --watch --colors",
     "test": "jest --colors",
     "build": "./node_modules/.bin/rollup -c",
