@@ -1,4 +1,4 @@
-import { Randu } from '../../../src/generators/randu';
+import Randu from '../../src/generators/randu';
 
 describe('Randu test suite', () => {
     describe('Randu::generate', () => {

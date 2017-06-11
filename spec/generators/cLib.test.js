@@ -1,4 +1,4 @@
-import { CLib } from '../../../src/generators/cLib';
+import CLib from '../../src/generators/cLib';
 
 describe('C Lib random number generator', () => {
     describe('CLib::generate', () => {

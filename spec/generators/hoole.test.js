@@ -1,4 +1,4 @@
-import { Hoole } from '../../../src/generators/hoole';
+import Hoole from '../../src/generators/hoole';
 
 describe('Hoole central randomizer test suite', () => {
     describe('Hoole::generate', () => {

@@ -1,4 +1,4 @@
-import { Windows } from '../../../src/generators/windows';
+import Windows from '../../src/generators/windows';
 
 describe('Windows random number generator test suite', () => {
     describe('Windows::generate', () => {

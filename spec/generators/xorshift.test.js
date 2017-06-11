@@ -1,4 +1,4 @@
-import { Xorshift } from '../../../src/generators/xorshift';
+import Xorshift from '../../src/generators/xorshift';
 
 describe('Xorshift test suite', () => {
     describe('Xorshift::generate', () => {
