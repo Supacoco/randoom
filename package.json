@@ -1,6 +1,6 @@
 {
   "name": "randoom",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "dist/bundle.umd.js",
   "module": "dist/bundle.es.js",
