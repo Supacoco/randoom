@@ -4,14 +4,16 @@ import Randu from './generators/randu.js'
 import Windows from './generators/windows.js'
 import XKCD from './generators/xkcd.js'
 import Xorshift from './generators/xorshift.js'
+import Xoroshiro from './generators/xoroshiro.js'
 import MersenneTwister from './generators/mersenneTwister.js'
 
 export {
-  CLib,
-  Hoole,
-  Randu,
-  Windows,
-  XKCD,
-  Xorshift,
-  MersenneTwister
+    CLib,
+    Hoole,
+    Randu,
+    Windows,
+    XKCD,
+    Xorshift,
+    Xoroshiro,
+    MersenneTwister
 }
