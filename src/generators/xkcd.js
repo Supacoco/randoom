@@ -1,6 +1,8 @@
 // https://xkcd.com/221/
 export default class XKCD {
     generate () {
-        return 4
+        return 1 // chosen by fair dice roll.
+                 // guaranteed to be random.
+
     }
 }
