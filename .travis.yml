@@ -5,12 +5,21 @@ before_install:
   - npm i npm@3.10.10 -g
 install:
   - npm i
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 script:
   - npm test
   - npm run build
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 cache:
   directories:
     - node_modules
 branches:
   only:
     - master
+env:
+  global:
+    - CC_REPORTER_ID: 3ed14239ca2567134aba1e292a33e4de3c891a284621534beedd472df62dfbec
