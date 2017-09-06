@@ -22,4 +22,4 @@ branches:
     - master
 env:
   global:
-    - CC_REPORTER_ID: 3ed14239ca2567134aba1e292a33e4de3c891a284621534beedd472df62dfbec
+    - CC_TEST_REPORTER_ID: 3ed14239ca2567134aba1e292a33e4de3c891a284621534beedd472df62dfbec
