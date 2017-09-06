@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "6"
+  - '6'
 before_install:
   - npm i npm@3.10.10 -g
 install:
@@ -9,10 +9,11 @@ script:
   - npm test
   - npm run build
 after_success:
-  - cat ./coverage/lcov.info | node node_modules/.bin/coveralls
+  - echo COVERALLS_TOKEN > .coveralls.yml
+  - cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
 cache:
   directories:
-    - "node_modules"
+    - node_modules
 branches:
   only:
     - master
