@@ -7,11 +7,11 @@ import Xorshift from './generators/xorshift.js'
 import MersenneTwister from './generators/mersenneTwister.js'
 
 export {
-    CLib,
-    Hoole,
-    Randu,
-    Windows,
-    XKCD,
-    Xorshift,
-    MersenneTwister
+  CLib,
+  Hoole,
+  Randu,
+  Windows,
+  XKCD,
+  Xorshift,
+  MersenneTwister
 }

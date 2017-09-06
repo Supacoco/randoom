@@ -25,6 +25,11 @@
       "!src/index.js"
     ]
   },
+  "standard": {
+    "ignore": [
+      "spec"
+    ]
+  },
   "author": "Nicolas Corral",
   "license": "ISC",
   "devDependencies": {
