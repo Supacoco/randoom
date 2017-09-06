@@ -9,7 +9,7 @@ script:
   - npm test
   - npm run build
 after_success:
-  - echo COVERALLS_TOKEN > .coveralls.yml
+  - echo repo_token: $COVERALLS_TOKEN > .coveralls.yml
   - cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
 cache:
   directories:
