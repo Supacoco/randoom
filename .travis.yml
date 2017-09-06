@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "6"
 before_install:
-  - npm i npm@3.10.10
+  - npm i npm@3.10.10 -g
 install:
   - npm i
 script:
