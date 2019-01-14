@@ -2,16 +2,18 @@ import buble from 'rollup-plugin-buble'
 import uglify from 'rollup-plugin-uglify-es'
 
 export default {
-  entry: 'src/index.js',
+  input: 'src/index.js',
   plugins: [ 
     uglify(),
-    buble()
+    buble({ 
+      transforms: {
+        generator: false
+      }
+    })
   ],
-  moduleName: 'randoom',
-  sourceMap: true,
-  targets: [
-    { dest: 'dist/bundle.cjs.js', format: 'cjs' },
-    { dest: 'dist/bundle.umd.js', format: 'umd' },
-    { dest: 'dist/bundle.es.js', format: 'es' }
+  output: [
+    { file: 'dist/bundle.cjs.js', format: 'cjs' },
+    { file: 'dist/bundle.umd.js', name: 'randoom', format: 'umd' },
+    { file: 'dist/bundle.js', format: 'es' }
   ]
 }
