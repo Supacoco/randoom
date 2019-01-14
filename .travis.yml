@@ -1,8 +1,8 @@
 language: node_js
 node_js:
-- '6'
+- '10'
 before_install:
-- npm i npm@3.10.10 -g
+- npm i npm@6.4.1 -g
 install:
 - npm i
 before_script:
