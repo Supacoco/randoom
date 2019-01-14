@@ -1,8 +1,8 @@
 // https://xkcd.com/221/
-export default class XKCD {
-  generate () {
+export default function* () {
+  while (true) {
     // chosen by fair dice roll.
     // guaranteed to be random.
-    return 0.4
+    yield 0.4
   }
 }

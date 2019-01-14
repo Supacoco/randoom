@@ -1,10 +1,8 @@
-export default class CLib {
-  constructor (seed) {
-    this.seed = seed
-  }
+export default function* (init = Date.now()) {
+  let seed = init
 
-  generate () {
-    this.seed = (this.seed * 1103515245 + 12345) / 65536 % 32768
-    return this.seed / 32767
+  while (true) {
+    seed = ((seed * 1103515245 + 12345) / 65536) % 32768
+    yield seed / 32767
   }
 }

@@ -1,10 +1,10 @@
-import XKCD from '../../src/generators/xkcd'
+import xkcd from "../../src/generators/xkcd"
 
-describe('XKCD test suite', () => {
-  describe('XKCD::generate', () => {
-    test('generate should return 4', () => {
-      const xkcd = new XKCD()
-      expect(xkcd.generate()).toEqual(0.4)
-    })
+describe("XKCD test suite", () => {
+  test("generate should return 4", () => {
+    const generator = xkcd()
+    const result = generator.next()
+
+    expect(result.value).toEqual(0.4)
   })
 })

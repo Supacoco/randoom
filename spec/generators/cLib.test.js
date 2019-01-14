@@ -1,13 +1,21 @@
-import CLib from '../../src/generators/cLib'
+import cLib from "../../src/generators/cLib"
 
-describe('C Lib random number generator', () => {
-  describe('CLib::generate', () => {
-    test('C lib implementation', () => {
-      const seed = 1337,
-        cLib = new CLib(seed),
-        result = cLib.generate()
+describe("C Lib test suite", () => {
+  test("C lib implementation", () => {
+    const seed = 1337
+    const generator = cLib(seed)
+    const result = generator.next()
 
-      expect(result).toEqual(0.03661547490943394)
-    })
+    expect(result.value).toEqual(0.03661547490943394)
+  })
+
+  test("should use date now if no seed is given", () => {
+    const _originalDate = Date
+    Date.now = jest.fn(() => 1337)
+
+    const generator = cLib()
+    const result = generator.next()
+
+    expect(result.value).toEqual(0.03661547490943394)
   })
 })

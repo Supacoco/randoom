@@ -31,7 +31,7 @@
    http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html
    email: m-mat @ math.sci.hiroshima-u.ac.jp (remove space)
 */
-const mersenneTwister = function* (init = Date.now()) {
+export default function* (init = Date.now()) {
   const N = 624
   const M = 397
   const MATRIX_A = 0x9908b0df
@@ -83,5 +83,3 @@ const mersenneTwister = function* (init = Date.now()) {
     yield seed * (1 / 4294967295)
   }
 }
-
-export default mersenneTwister

@@ -1,10 +1,8 @@
-export default class Hoole {
-  constructor (seed) {
-    this.seed = seed
-  }
+export default function* (init = Date.now()) {
+  let seed = init
 
-  generate () {
-    this.seed = (this.seed * 9301 + 49297) % 233280
-    return this.seed / 233280
+  while (true) {
+    seed = (seed * 9301 + 49297) % 233280
+    yield seed / 233280
   }
 }

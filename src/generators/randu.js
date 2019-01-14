@@ -1,10 +1,8 @@
-export default class Randu {
-  constructor (seed) {
-    this.seed = seed
-  }
+export default function* (init = Date.now()) {
+  let seed = init
 
-  generate () {
-    this.seed = this.seed * 65539 % 2147483648
-    return this.seed / 2147483648
+  while (true) {
+    seed *= 65539 % 2147483648
+    yield seed / 2147483648
   }
 }

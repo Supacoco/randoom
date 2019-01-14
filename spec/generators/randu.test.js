@@ -1,42 +1,21 @@
-import Randu from '../../src/generators/randu'
+import randu from "../../src/generators/randu"
 
-describe('Randu test suite', () => {
-  describe('Randu::generate', () => {
-    test('generate should update the seed', () => {
-      const seed = 1337,
-        randu = new Randu(seed),
-        result = randu.generate()
+describe("Randu test suite", () => {
+  test("randu implementation", () => {
+    const seed = 1337
+    const generator = randu(seed)
+    const result = generator.next()
 
-      expect(randu.seed).not.toBe(seed)
-    })
-
-    test('generate should return the same result with the same seed', () => {
-      const seed = 1337,
-        generator1 = new Randu(seed),
-        generator2 = new Randu(seed)
-
-      const result1 = generator1.generate(),
-        result2 = generator2.generate()
-
-      expect(result2).toEqual(result1)
-    })
-
-    test('generate should return floats between 0 and 1', () => {
-      const seed = 1337,
-        randu = new Randu(seed),
-        result = randu.generate()
-
-      expect(result).toBeDefined()
-      expect(result).toBeGreaterThan(0)
-      expect(result).toBeLessThan(1)
-    })
-
-    test('randu implementation', () => {
-      const seed = 1337,
-        randu = new Randu(seed),
-        result = randu.generate()
-
-      expect(result).toEqual(0.04080386972054839)
-    })
+    expect(result.value).toEqual(0.04080386972054839)
   })
+
+  test("should use date now if no seed is given", () => {
+    const _originalDate = Date
+    Date.now = jest.fn(() => 1337)
+
+    const generator = randu()
+    const result = generator.next()
+
+    expect(result.value).toEqual(0.04080386972054839)
+  });
 })

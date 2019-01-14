@@ -1,4 +1,4 @@
-const xorshift = function* (init = Date.now()) {
+export default function* (init = Date.now()) {
   let x = 123456789
   let y = 362436069
   let z = 521288629
@@ -16,5 +16,3 @@ const xorshift = function* (init = Date.now()) {
     yield seed / 2147483648
   }
 }
-
-export default xorshift
