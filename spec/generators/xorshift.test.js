@@ -1,13 +1,11 @@
-import Xorshift from '../../src/generators/xorshift'
+import xorshift from '../../src/generators/xorshift'
 
 describe('Xorshift test suite', () => {
-  describe('Xorshift::generate', () => {
-    test('xorshift implementation', () => {
-      const seed = 1337,
-        xorshift = new Xorshift(seed),
-        result = xorshift.generate()
+  test('xorshift implementation', () => {
+    const seed = 1337
+    const generator = xorshift(seed)
+    const result = generator.next()
 
-      expect(result).toEqual(0.6985572916455567)
-    })
+    expect(result.value).toEqual(0.6985572916455567)
   })
 })

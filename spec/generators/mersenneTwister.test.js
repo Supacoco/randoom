@@ -1,23 +1,27 @@
-import MersenneTwister from '../../src/generators/mersenneTwister'
+import twister from '../../src/generators/mersenneTwister-meh'
 
 describe('MersenneTwister test suite', () => {
   describe('MersenneTwister::generate', () => {
     test('MersenneTwister implementation', () => {
-      const seed = 1337,
-        twister = new MersenneTwister(seed),
-        result = twister.generate()
+      const seed = 1337
+      const generator = twister(seed)
+      const result = generator.next()
 
-      expect(result).toEqual(0.26202467625542186)
-      expect(twister.generate()).toEqual(0.5605297529978048)
+      expect(result.value).toEqual(0.26202467625542186)
     })
 
-    test('second call to generate', () => {
-      const seed = 1337,
-        twister = new MersenneTwister(seed)
+    test('should reuse previous result as seed', () => {
+      const seed = 1337
+      const generator = twister(seed)
+      const firstResult = generator.next()
+      const secondResult = generator.next()
 
-      twister.generate()
+      console.log(generator.next())
+      console.log(firstResult)
+      console.log(secondResult)
 
-      expect(twister.generate()).toEqual(0.5605297529978048)
+      expect(firstResult.value).toEqual(0.26202467625542186)
+      expect(secondResult.value).toEqual(0.5605297529978048)
     })
   })
 })

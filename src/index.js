@@ -3,7 +3,7 @@ import Hoole from './generators/hoole.js'
 import Randu from './generators/randu.js'
 import Windows from './generators/windows.js'
 import XKCD from './generators/xkcd.js'
-import Xorshift from './generators/xorshift.js'
+import xorshift from './generators/xorshift.js'
 import MersenneTwister from './generators/mersenneTwister.js'
 
 export {
@@ -12,6 +12,6 @@ export {
   Randu,
   Windows,
   XKCD,
-  Xorshift,
+  xorshift,
   MersenneTwister
 }

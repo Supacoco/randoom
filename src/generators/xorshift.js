@@ -1,22 +1,20 @@
-export default class Xorshift {
-  constructor (seed) {
-    this.x = 123456789
-    this.y = 362436069
-    this.z = 521288629
+const xorshift = function* (init = new Date()) {
+  let x = 123456789
+  let y = 362436069
+  let z = 521288629
+  let seed = init
 
-    this.seed = seed
-  }
+  while (true) {
+    let t = (x ^ (x << 11)) & 0x7fffffff
+    seed = (seed ^ (seed >> 19) ^
+      (t ^ (t >> 8)))
 
-  generate () {
-    this.t = (this.x ^ (this.x << 11)) & 0x7fffffff
+    x = y
+    y = z
+    z = seed
 
-    this.seed = (this.seed ^ (this.seed >> 19) ^
-      (this.t ^ (this.t >> 8)))
-
-    this.x = this.y
-    this.y = this.z
-    this.z = this.seed
-
-    return this.seed / 2147483648
+    yield seed / 2147483648
   }
 }
+
+export default xorshift
