@@ -1,4 +1,4 @@
-const xorshift = function* (init = new Date()) {
+const xorshift = function* (init = Date.now()) {
   let x = 123456789
   let y = 362436069
   let z = 521288629
