@@ -4,8 +4,8 @@
   "description": "",
   "repository": "https://github.com/Supacoco/randoom",
   "main": "dist/bundle.umd.js",
-  "module": "dist/bundle.es.js",
-  "js:next": "dist/bundle.es.js",
+  "module": "dist/bundle.js",
+  "js:next": "dist/bundle.js",
   "scripts": {
     "preversion": "npm test",
     "version": "npm run build && git add -A dist",
