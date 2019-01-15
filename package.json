@@ -1,6 +1,6 @@
 {
   "name": "@supacoc0/randoom",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "",
   "repository": "https://github.com/Supacoco/randoom",
   "main": "dist/bundle.umd.js",
